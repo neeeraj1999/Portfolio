@@ -3,19 +3,116 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(168, 85, 247, 0.4); }
+  50% { border-color: rgba(168, 85, 247, 0.8); }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* Skills section animations */
+@keyframes border-slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-border-slide {
+  animation: border-slide 3s ease-in-out infinite;
+}
+
+.animate-border-slide-delayed {
+  animation: border-slide 3s ease-in-out 1.5s infinite;
+}
+
+/* Skill card hover effect */
+.skill-card-hover {
+  @apply relative transition-all duration-300 ease-out hover:scale-105;
+}
+
+.skill-card-hover::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl opacity-0 transition-opacity duration-300;
+  filter: blur(1rem);
+}
+
+.skill-card-hover:hover::before {
+  @apply opacity-20;
+}
+
+/* Custom backdrop blur for navbar */
+.backdrop-blur-navbar {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* Custom selection color */
+::selection {
+  background: rgba(168, 85, 247, 0.2);
+  color: #fff;
+}
+
+/* Skill tooltip animation */
+@keyframes tooltip-slide-up {
+  0% { transform: translateY(0.5rem); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.skill-tooltip {
+  animation: tooltip-slide-up 0.2s ease-out forwards;
 }

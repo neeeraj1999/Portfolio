@@ -1,0 +1,19 @@
+.logo-text {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  z-index: 10;
+}
+
+.logo-text h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo-text h2:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+} 
