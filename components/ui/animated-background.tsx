@@ -67,7 +67,8 @@ const AnimatedBackground = () => {
           point.x, point.y, 0,
           point.x, point.y, point.radius * (isMobile ? 3 : 4) // Smaller glow on mobile
         );
-        gradient.addColorStop(0, point.color + "40");
+        // Reduce glow opacity on mobile
+        gradient.addColorStop(0, point.color + (isMobile ? "20" : "40"));
         gradient.addColorStop(1, "transparent");
         ctx.fillStyle = gradient;
         ctx.arc(point.x, point.y, point.radius * (isMobile ? 3 : 4), 0, Math.PI * 2);
@@ -76,7 +77,8 @@ const AnimatedBackground = () => {
         // Draw point core
         ctx.beginPath();
         ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-        ctx.fillStyle = point.color;
+        // Reduce point opacity on mobile
+        ctx.fillStyle = point.color + (isMobile ? "80" : "");
         ctx.fill();
 
         // Draw connections
