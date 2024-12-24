@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 interface TimelineItem {
   title: string;
@@ -70,7 +70,7 @@ const Experience = () => {
 
   return (
     <div className="min-h-screen relative">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Experience</h2>
           <div className="flex justify-center gap-4 mb-8">
@@ -100,9 +100,9 @@ const Experience = () => {
         </div>
 
         <div className="relative">
-          {/* Enhanced Timeline line with glow */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500" />
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 blur-sm" />
+          {/* Timeline line with responsive positioning */}
+          <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 lg:transform lg:-translate-x-1/2" />
+          <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 blur-sm lg:transform lg:-translate-x-1/2" />
 
           <div className="space-y-12">
             {items.map((item, index) => (
@@ -112,29 +112,31 @@ const Experience = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={cn(
-                  "relative flex items-center justify-between",
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  "relative flex items-start",
+                  "flex-col ml-12 lg:ml-0", // Mobile: vertical layout with margin-left
+                  "lg:flex-row lg:items-center lg:justify-between", // Desktop: horizontal layout
+                  index % 2 === 1 && "lg:flex-row-reverse" // Alternate sides only on desktop
                 )}
               >
-                {/* Enhanced Timeline dot with glow */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4">
+                {/* Timeline dot with responsive positioning */}
+                <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 w-4 h-4">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 blur-sm" />
                   <div className="relative w-full h-full rounded-full bg-slate-800 border-2 border-indigo-500" />
                 </div>
 
-                {/* Enhanced Content card with gradient border for education */}
-                <div className="group relative w-5/12">
+                {/* Content card with responsive width */}
+                <div className="group relative w-full lg:w-5/12">
                   <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-70" />
-                  <div className="relative p-6 rounded-xl bg-slate-900 backdrop-blur-sm">
-                    <div className="flex justify-between items-start mb-2">
+                  <div className="relative p-4 sm:p-6 rounded-xl bg-slate-900 backdrop-blur-sm">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
                       <div>
-                        <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-white">{item.title}</h3>
                         <p className="text-indigo-400">{item.organization}</p>
                       </div>
-                      <span className="text-sm text-slate-400">{item.date}</span>
+                      <span className="text-sm text-slate-400 whitespace-nowrap">{item.date}</span>
                     </div>
                     
-                    {/* GPA Display with glow effect */}
+                    {/* GPA Display */}
                     {activeTab === 'education' && (
                       <div className="mt-4 relative inline-block">
                         <div className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-75 blur-sm" />
@@ -161,6 +163,20 @@ const Experience = () => {
                         <p key={i} className="text-sm text-slate-300 mb-2">{point}</p>
                       ))}
                     </div>
+
+                    {/* Skills tags */}
+                    {item.skills && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {item.skills.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 text-xs rounded-full bg-slate-800 text-slate-300 border border-slate-700"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>

@@ -1,13 +1,13 @@
-import HeroSection from "@/components/ui/hero-section";
-import AboutSection from "@/components/ui/about-section";
-import ExperienceSection from "@/components/ui/experience-section";
-import ProjectsSection from "@/components/ui/project-section";
-import SkillsSection from "@/components/ui/skills-section";
-import CertificationsSection from "@/components/ui/certifications-section";
-import ContactSection from "@/components/ui/contact-section";
-import NavbarMenu from "@/components/ui/navbar-menu";
-import VerticalNav from "@/components/ui/vertical-nav";
-import AnimatedBackground from "@/components/ui/animated-background";
+import HeroSection from "../components/ui/hero-section";
+import AboutSection from "../components/ui/about-section";
+import ExperienceSection from "../components/ui/experience-section";
+import ProjectsSection from "../components/ui/project-section";
+import SkillsSection from "../components/ui/skills-section";
+import CertificationsSection from "../components/ui/certifications-section";
+import ContactSection from "../components/ui/contact-section";
+import NavbarMenu from "../components/ui/navbar-menu";
+import MobileMenu from "../components/ui/mobile-menu";
+import AnimatedBackground from "../components/ui/animated-background";
 
 const navigationItems = [
   { title: "Home", href: "#home" },
@@ -30,10 +30,8 @@ export default function Home() {
       {/* Navigation */}
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center">
         <NavbarMenu items={navigationItems} />
+        <MobileMenu items={navigationItems} />
       </div>
-
-      {/* Vertical Navigation */}
-      <VerticalNav />
 
       {/* Content sections */}
       <div className="relative z-10">

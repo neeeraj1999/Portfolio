@@ -6,20 +6,7 @@ import Image from "next/image";
 const AboutSection = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
-      {/* About Me Label */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="absolute top-20 left-1/2 -translate-x-1/2"
-      >
-        <h2 className="text-2xl font-light text-white/80 flex items-center gap-4">
-          <span className="w-8 h-[1px] bg-purple-500/50" />
-          About Me
-          <span className="w-8 h-[1px] bg-purple-500/50" />
-        </h2>
-      </motion.div>
-
+      
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}

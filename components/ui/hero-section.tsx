@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import VerticalNav from "./vertical-nav";
 
 const floatingAnimation = {
   animate: {
@@ -25,7 +26,6 @@ const HeroSection = () => {
     "Full Stack Developer",
     "Machine Learning Enthusiast",
     "Sports Fanatic"
-    
   ];
 
   // Typewriter effect for name
@@ -102,13 +102,16 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-12"
+          className="mb-8"
         >
           <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto">
             Transforming ideas into elegant solutions through clean code and innovative design.
             Passionate about creating seamless digital experiences that make a difference.
           </p>
         </motion.div>
+
+        {/* Social Icons for Mobile */}
+        <VerticalNav />
 
         <motion.div 
           className="flex flex-col items-center"

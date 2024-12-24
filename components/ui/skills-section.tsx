@@ -1,12 +1,11 @@
 "use client";
 import { SparklesCore } from "./sparkles";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import { FaJava, FaJs, FaPython, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaAngular, FaAws, FaGitAlt, FaDocker, FaJira, FaConfluence } from "react-icons/fa";
 import { SiTypescript, SiCplusplus, SiSpringboot, SiNextdotjs, SiExpress, SiTailwindcss, SiMysql, SiMongodb, SiPostgresql, SiFirebase, SiGooglecloud, SiKubernetes, SiJenkins, SiPostman, SiRedis, SiGraphql, SiApachekafka, SiApachehadoop, SiOpencv, SiDotnet, SiSharp } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import { useTheme } from "next-themes";
-import { skillsData } from "@/lib/metadata";
 
 const skills = {
   row1: [
@@ -47,7 +46,6 @@ const skills = {
   ]
 };
 
-
 const SkillIcon = ({ skill, index }: { skill: any; index: number }) => {
   return (
     <motion.div
@@ -56,15 +54,15 @@ const SkillIcon = ({ skill, index }: { skill: any; index: number }) => {
       transition={{ delay: index * 0.1 }}
       className="group relative"
     >
-      <div className="relative flex items-center justify-center h-24 w-24 rounded-xl bg-[rgba(255,255,255,0.08)] transition-all duration-300 transform group-hover:scale-110 border border-transparent group-hover:border-white/20">
+      <div className="relative flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 rounded-xl bg-[rgba(255,255,255,0.08)] transition-all duration-300 transform group-hover:scale-110 border border-transparent group-hover:border-white/20">
         <skill.icon 
-          className="h-14 w-14 transition-colors duration-200"
+          className="h-8 w-8 sm:h-10 sm:w-10 lg:h-14 lg:w-14 transition-colors duration-200"
           style={{ 
             color: skill.color
           }}
         />
-        <div className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          <p className="text-sm text-white font-medium">{skill.title}</p>
+        <div className="absolute -bottom-6 sm:-bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <p className="text-xs sm:text-sm text-white font-medium text-center">{skill.title}</p>
         </div>
       </div>
     </motion.div>
@@ -73,8 +71,8 @@ const SkillIcon = ({ skill, index }: { skill: any; index: number }) => {
 
 export default function SkillsSection() {
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
-      <div className="w-full absolute inset-0 h-screen">
+    <section className="relative min-h-screen py-16 flex flex-col items-center justify-center overflow-hidden">
+      <div className="w-full absolute inset-0 h-full">
         <SparklesCore
           id="tsparticlesfullpage"
           background="transparent"
@@ -86,17 +84,17 @@ export default function SkillsSection() {
         />
       </div>
 
-      <div className="relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-4">Skills</h2>
-        <p className="text-[#e5e7eb] mb-12 text-center">Technologies I work with</p>
+      <div className="relative z-10 px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Skills</h2>
+        <p className="text-[#e5e7eb] mb-8 sm:mb-12 text-center">Technologies I work with</p>
 
-        <div className="flex flex-col items-center gap-12">
+        <div className="flex flex-col items-center gap-8 sm:gap-12">
           {Object.values(skills).map((row, rowIndex) => (
             <div
               key={rowIndex}
               className={cn(
-                "flex flex-wrap justify-center gap-8",
-                rowIndex === 1 && "ml-10" // Offset second row for pyramid effect
+                "flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8",
+                rowIndex === 1 && "lg:ml-10" // Pyramid effect only on desktop
               )}
             >
               {row.map((skill, index) => (
@@ -108,4 +106,4 @@ export default function SkillsSection() {
       </div>
     </section>
   );
-} 
+}
