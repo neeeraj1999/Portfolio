@@ -12,27 +12,44 @@ const AnimatedBackground = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    let points: Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      color: string;
+    }> = [];
+
+    const initializePoints = () => {
+      const isMobile = window.innerWidth <= 768;
+      const width = canvas.width;
+      const height = canvas.height;
+      
+      points = Array.from({ length: isMobile ? 25 : 50 }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * (isMobile ? 0.15 : 0.3),
+        vy: (Math.random() - 0.5) * (isMobile ? 0.15 : 0.3),
+        radius: Math.random() * 1.5 + 0.5,
+        color: Math.random() > 0.5 ? "#A855F7" : "#3B82F6",
+      }));
+    };
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      initializePoints(); // Reinitialize points on resize
     };
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Create points for the constellation effect
-    const points = Array.from({ length: 50 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      radius: Math.random() * 1.5 + 0.5,
-      color: Math.random() > 0.5 ? "#A855F7" : "#3B82F6",
-    }));
-
     const animate = () => {
       ctx.fillStyle = "rgba(3, 0, 20, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const isMobile = window.innerWidth <= 768;
 
       // Update and draw points
       points.forEach((point, i) => {
@@ -66,7 +83,8 @@ const AnimatedBackground = () => {
         points.forEach((otherPoint, j) => {
           if (i === j) return;
           const distance = Math.hypot(point.x - otherPoint.x, point.y - otherPoint.y);
-          if (distance < 150) {
+          // Keep desktop distance unchanged
+          if (distance < (isMobile ? 100 : 150)) {
             ctx.beginPath();
             ctx.moveTo(point.x, point.y);
             ctx.lineTo(otherPoint.x, otherPoint.y);
@@ -74,8 +92,9 @@ const AnimatedBackground = () => {
               point.x, point.y,
               otherPoint.x, otherPoint.y
             );
-            gradient.addColorStop(0, point.color + "20");
-            gradient.addColorStop(1, otherPoint.color + "20");
+            const opacity = isMobile ? "10" : "20"; // More subtle on mobile
+            gradient.addColorStop(0, point.color + opacity);
+            gradient.addColorStop(1, otherPoint.color + opacity);
             ctx.strokeStyle = gradient;
             ctx.lineWidth = 0.5;
             ctx.stroke();
