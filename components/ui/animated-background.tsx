@@ -29,9 +29,9 @@ const AnimatedBackground = () => {
       points = Array.from({ length: isMobile ? 25 : 50 }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * (isMobile ? 0.15 : 0.3),
-        vy: (Math.random() - 0.5) * (isMobile ? 0.15 : 0.3),
-        radius: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * (isMobile ? 0.5 : 0.3), // Faster on mobile
+        vy: (Math.random() - 0.5) * (isMobile ? 0.5 : 0.3), // Faster on mobile
+        radius: isMobile ? Math.random() * 0.8 + 0.3 : Math.random() * 1.5 + 0.5, // Smaller on mobile
         color: Math.random() > 0.5 ? "#A855F7" : "#3B82F6",
       }));
     };
@@ -65,12 +65,12 @@ const AnimatedBackground = () => {
         ctx.beginPath();
         const gradient = ctx.createRadialGradient(
           point.x, point.y, 0,
-          point.x, point.y, point.radius * 4
+          point.x, point.y, point.radius * (isMobile ? 3 : 4) // Smaller glow on mobile
         );
         gradient.addColorStop(0, point.color + "40");
         gradient.addColorStop(1, "transparent");
         ctx.fillStyle = gradient;
-        ctx.arc(point.x, point.y, point.radius * 4, 0, Math.PI * 2);
+        ctx.arc(point.x, point.y, point.radius * (isMobile ? 3 : 4), 0, Math.PI * 2);
         ctx.fill();
 
         // Draw point core
