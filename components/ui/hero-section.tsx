@@ -57,14 +57,14 @@ const HeroSection = () => {
         className="text-center max-w-3xl mx-auto relative z-10"
       >
         <motion.h1 
-          className="text-6xl md:text-7xl font-bold mb-6 text-white flex items-center justify-center"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-white flex items-center justify-center"
         >
           {displayedText}
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className={`inline-block w-[4px] h-[60px] ml-2 bg-purple-400 ${
+            className={`inline-block w-[4px] h-[40px] sm:h-[50px] md:h-[60px] ml-2 bg-purple-400 ${
               isTyping ? "animate-blink" : ""
             }`}
             style={{
@@ -83,12 +83,12 @@ const HeroSection = () => {
               transition={{ duration: 0.5 }}
               className="absolute w-full"
             >
-              <p className="text-2xl md:text-3xl bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              <p className="text-xl sm:text-2xl md:text-3xl bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                 {professions[currentProfessionIndex]}
                 <motion.span
                   animate={{ opacity: [1, 0, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
-                  className="inline-block w-[3px] h-[30px] ml-1 bg-purple-400"
+                  className="inline-block w-[3px] h-[20px] sm:h-[25px] md:h-[30px] ml-1 bg-purple-400"
                   style={{
                     boxShadow: "0 0 8px #A855F7, 0 0 15px #A855F7",
                   }}
@@ -104,7 +104,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-8"
         >
-          <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto">
             Transforming ideas into elegant solutions through clean code and innovative design.
             Passionate about creating seamless digital experiences that make a difference.
           </p>
@@ -123,7 +123,7 @@ const HeroSection = () => {
           <div className="flex gap-8 mb-6">
             <Link 
               href="#projects" 
-              className="px-8 py-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 text-white hover:scale-105"
+              className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 text-white hover:scale-105 text-sm sm:text-base"
             >
               View Projects
             </Link>
@@ -132,12 +132,12 @@ const HeroSection = () => {
               href="YOUR_RESUME_DRIVE_LINK"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 text-white hover:scale-105"
+              className="px-6 sm:px-8 py-2 sm:py-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 text-white hover:scale-105 text-sm sm:text-base"
             >
               <span className="flex items-center gap-2">
                 Resume
                 <svg 
-                  className="w-4 h-4" 
+                  className="w-3 h-3 sm:w-4 sm:h-4" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
