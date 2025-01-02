@@ -1,6 +1,7 @@
 # ✨ My Portfolio Website
 
 A sleek and interactive portfolio website showcasing my professional journey and technical expertise. Built with Next.js, TypeScript, and Tailwind CSS, featuring modern design elements and smooth animations.
+
 ![image](https://github.com/user-attachments/assets/1ff6e044-a361-4c4d-a513-1f4bab414b5a)
 
 🔗 Live demo : https://neerajpatil.me/
