@@ -1,8 +1,13 @@
-# My Portfolio Website
+# ✨ My Portfolio Website
 
 A sleek and interactive portfolio website showcasing my professional journey and technical expertise. Built with Next.js, TypeScript, and Tailwind CSS, featuring modern design elements and smooth animations.
 
-## Interactive UI Elements
+![image](https://github.com/user-attachments/assets/1ff6e044-a361-4c4d-a513-1f4bab414b5a)
+
+🔗 Live demo : https://neerajpatil.me/
+
+
+## 🌟 Interactive UI Elements
 
 - 3D card effects
 - Particle animations
@@ -10,15 +15,13 @@ A sleek and interactive portfolio website showcasing my professional journey and
 - Floating skill cards
 - Animated text effects
 - Meteor animations
-- Lamp effects
 - Sparkle effects
 - Background gradients
 - Card hover effects
 - Card spotlight effects
 - Bento grid layout
-- Vertical navigation
 
-## Responsive Design
+## 🌟Responsive Design
 
 - Seamless experience across all devices
 - Adaptive layouts
@@ -27,11 +30,8 @@ A sleek and interactive portfolio website showcasing my professional journey and
 - Flexible image sizing
 - Responsive typography
 - Touch-friendly interactions
-- Collapsible navigation menu
-- Optimized spacing and padding
-- Breakpoint-specific layouts
 
-## Theme Support
+## 🌟Theme Support
 
 - Automatic theme detection
 - Smooth theme transitions
@@ -43,7 +43,7 @@ A sleek and interactive portfolio website showcasing my professional journey and
 - Theme-specific animations
 - Custom SVG theme adaptation
 
-## Performance Optimized
+## 🌟Performance Optimized
 
 - Fast page loads
 - Optimized images
@@ -58,7 +58,7 @@ A sleek and interactive portfolio website showcasing my professional journey and
 - Framer Motion - Animations
 - React Icons - Icon library
 
-## 🔗 Connect With Me
+## 🌐 Connect With Me
 
 - [GitHub](https://github.com/neeeraj1999)
 - [LinkedIn](https://www.linkedin.com/in/neeraj-patil-76278816b/)
