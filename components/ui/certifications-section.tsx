@@ -14,6 +14,12 @@ interface Certification {
 
 const certifications: Certification[] = [
   {
+    title: "AWS Developer Associate",
+    organization: "Amazon Web Services",
+    date: "In Progress",
+    status: "ongoing"
+  },
+  {
     title: "Software Engineer",
     organization: "HackerRank",
     date: "Jul 2024",
@@ -24,12 +30,6 @@ const certifications: Certification[] = [
     organization: "HackerRank",
     date: "Jan 2024",
     link: "https://www.hackerrank.com/certificates/e306f66d509e"
-  },
-  {
-    title: "AWS Developer Associate",
-    organization: "Amazon Web Services",
-    date: "In Progress",
-    status: "ongoing"
   },
   {
     title: "System Design Masterclass",
