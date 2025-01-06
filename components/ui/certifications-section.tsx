@@ -14,6 +14,18 @@ interface Certification {
 
 const certifications: Certification[] = [
   {
+    title: "Software Engineer",
+    organization: "HackerRank",
+    date: "Jul 2024",
+    link: "https://www.hackerrank.com/certificates/1b64720fdb63"
+  },
+  {
+    title: "Problem Solving (Intermediate)",
+    organization: "HackerRank",
+    date: "Jan 2024",
+    link: "https://www.hackerrank.com/certificates/e306f66d509e"
+  },
+  {
     title: "AWS Developer Associate",
     organization: "Amazon Web Services",
     date: "In Progress",
