@@ -16,13 +16,13 @@ interface TimelineItem {
 
 const experiences: TimelineItem[] = [
   {
-    title: "Graduate Research Assistant",
+    title: "Software Engineer",
     organization: "Syracuse university",
     location: "Syracuse, NY",
     type: "On-site",
     date: "June 2024 - Present",
-    description: "Developing a Java-based backend for a student shuttle service using AWS EKS, S3, and Lambda, boosting service management efficiency while collaborating on a ReactJS and NodeJS frontend to enhance usability, driving higher user satisfaction. Implemented real-time monitoring capabilities using Kafka for student shuttle operations, improving service delivery efficiency and increasing customer satisfaction.",
-    skills: ["Amazon Sagemaker", "AWS Beanstalk", "Flask", "Python"],
+    description: "Developed an AI-powered sales management platform for Syracuse Dome venue operations that leverages Amazon Bedrock's Claude model to automate contract processing and sales report analysis with 90% accuracy. The system features a RAG-based knowledge base with multimodal session handling and intelligent document retrieval using AWS S3, LangChain, and FAISS similarity search, reducing search time by 75%. I built a scalable backend using Python FastAPI and PostgreSQL with JWT authentication, integrated Redis caching for performance optimization, and engineered a responsive frontend using TypeScript, React.js, and Streamlit. This comprehensive solution empowers sales teams with real-time chat, dashboard analytics, and personalized customer interactions for enhanced venue booking and event management.",
+    skills: ["RAG", "AWS Bedrock", "FastAPI", "Python"],
   },
   {
     title: "Software Engineer",
